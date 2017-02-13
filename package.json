@@ -1,0 +1,39 @@
+{
+  "name": "typeorm-graphql-api",
+  "version": "0.0.1",
+  "description": "allows you to build your graphql api by co-locating TypeORM entity definition with typedefs and resolvers.",
+  "main": "dist/index.js",
+  "scripts": {
+    "commit": "git-cz",
+    "build": "tsc",
+    "dev": "node_modules/.bin/nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'node_modules/.bin/ts-node' src/index.ts"
+  },
+  "keywords": [
+    "apollo",
+    "graphql",
+    "typeorm"
+  ],
+  "author": "Ben Kinsey",
+  "license": "MIT",
+  "dependencies": {
+    "graphql": "^0.9.1",
+    "graphql-tag": "^1.2.4",
+    "graphql-tools": "^0.9.2",
+    "reflect-metadata": "^0.1.9",
+    "typeorm": "0.0.8",
+    "graphql-subscriptions": "^0.2.3"
+  },
+  "devDependencies": {
+    "@types/reflect-metadata": "0.0.5",
+    "typescript": "^2.1.5",
+    "commitizen": "^2.9.5",
+    "cz-conventional-changelog": "^1.2.0",
+    "nodemon": "^1.11.0",
+    "ts-node": "^2.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
