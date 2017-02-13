@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import { getMetadataArgsStorage } from 'typeorm';
 import { makeExecutableSchema } from 'graphql-tools';
 import { GraphQLSchema } from 'graphql';

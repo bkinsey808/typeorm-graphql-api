@@ -1,6 +1,6 @@
 {
   "name": "typeorm-graphql-api",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "allows you to build your graphql api by co-locating TypeORM entity definition with typedefs and resolvers.",
   "main": "dist/index.js",
   "scripts": {
