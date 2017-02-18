@@ -43,9 +43,10 @@ export const getCreateQuery = entity => {
     typeDef: `createUser(\n${getCreateFields(entity)}\n): ${capitalize(apiName)}`,
     apiDescription: `mutation to create a ${apiName}`,
     async resolver(root, args, context) {
+      const repository = context.connection.getRepository(entity);
       const instance = new entity();
       Object.assign(instance, args);
-      await context.connection.persist(instance);
+      await repository.persist(instance);
       return instance;
     }
   };
@@ -54,7 +55,7 @@ export const getCreateQuery = entity => {
 export const getDeleteQuery = entity => {
   const apiName = getEntityApiName(entity);
   return {
-    typeDef: `deleteUser(\n${getIdField(entity)}\n): ${capitalize(apiName)}`,
+    typeDef: `deleteUser(\n${getIdField(entity)}\n): Boolean`,
     apiDescription: `mutation to delete a ${apiName}`,
     async resolver(root, args, context) {
       const repository = context.connection.getRepository(entity);

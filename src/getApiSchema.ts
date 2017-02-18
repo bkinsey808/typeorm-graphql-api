@@ -14,7 +14,7 @@ const getEntityTypeDefs = entityArray => {
     .join('');
 };
 
-const maybeAddDescription = (query) => {
+const maybeAddDescription = query => {
   return (query.apiDescription ? `#${query.apiDescription}\n` : '') +
     `${query.typeDef}\n`;
 };
@@ -51,14 +51,13 @@ const getQueryName = typeDef => {
   return r;
 };
 
-const getQueryResolverPairsForEntity = (entity, queriesOrMutations) => {
-  return getQueriesOrMutations(entity, queriesOrMutations)
+const getQueryResolverPairsForEntity = (entity, queriesOrMutations) =>
+  getQueriesOrMutations(entity, queriesOrMutations)
     .map(query => maybeExecuteFunction(query, entity))
     .map(query => [
       getQueryName(query.typeDef),
       query.resolver
     ]);
-};
 
 // returns an object: 
 //   key is the name of the query or mutation
